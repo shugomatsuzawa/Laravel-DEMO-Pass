@@ -1,6 +1,6 @@
 # デジタル会員証発行ツール（DEMO）
 会員登録すると、会員番号が入ったQRコード付きのAppleウォレットパスを発行するLaravelアプリケーションのデモンストレーションです。  
-詳細は[ブログをご覧ください](https://shugomatsuzawa.com/techblog/?p=288)。
+詳細は[ブログをご覧ください](https://shugomatsuzawa.com/techblog/2023/12/03/288/)。
 ## ローカルで実行する
 はじめに、Laravel Sailが実行できるようにDockerをセットアップしてください。
 
@@ -10,9 +10,15 @@
 
 ```.env.example```を複製して```.env```を作成し、次の箇所を変更します。
 ```
-CERTIFICATE_PATH="/var/www/html/storage/app/keys/Shugo Matsuzawa Dev Key.p12" #p12証明書の絶対パス
-CERTIFICATE_PASS="password" #p12証明書作成字のパスワード
-WWDR_CERTIFICATE="/var/www/html/storage/app/keys/Apple Worldwide Developer Relations Certification Authority.pem" #WWDRの絶対パス
+# Passgenerator
+# Apple DeveloperアカウントのチームID (https://developer.apple.com/account に載っている)
+APPLE_DEVELOPER_TEAM_ID="0000AA0000"
+# p12証明書の絶対パス
+CERTIFICATE_PATH="/var/www/html/storage/app/keys/pass.p12"
+# p12証明書作成字のパスワード
+CERTIFICATE_PASS="password"
+# Worldwide Developer Relations Certification Authorityの絶対パス
+WWDR_CERTIFICATE="/var/www/html/storage/app/keys/Apple Worldwide Developer Relations Certification Authority.pem"
 ```
 
 プロジェクトディレクトリに移動し、次のコマンドで起動します。
